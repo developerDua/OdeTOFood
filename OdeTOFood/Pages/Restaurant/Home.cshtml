@@ -1,0 +1,29 @@
+﻿@page
+
+@model HomeModel
+@{
+}
+
+<h1> H Tag </h1>
+@Model.Message
+
+<form method="get">
+    <input type="text" value="" name="rName" />
+    <button type="submit"> Submit </button>
+</form>
+<table class="table">
+    @foreach (var i in @Model.Restuarants)
+    {
+        <tr>
+            <td> @i.Id</td>
+            <td> @i.Name</td>
+            <td> @i.Location</td>
+            <td> @i.CusineType</td>
+            <td>
+                <a asp-page="./Edit" asp-route-restaurantId="@i.Id"> Edit </a>
+            </td>
+        </tr>
+    }
+</table>
+<br/>
+<a asp-page="./Edit" class="form-control btn btn-primary col-1"> Add New R </a>
